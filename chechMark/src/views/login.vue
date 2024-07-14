@@ -51,11 +51,11 @@ export default {
       if(this.provider == ''){
         this.errors.push('select your role')
       }
-      if(this.errors.length == 0){
+      // if(this.errors.length == 0){
         this.$emit('lgstate')
         window.location.href = window.location.href.slice(0,-5)
         // console.log(window.location.href)
-      }
+      // }
     }
   }
 }

@@ -1,6 +1,5 @@
 <template>
   <div id="header" class="bgw w-fill flex align-center gap-3 p-3 justify-end" :style="{width: mainInWidth + '%'}">
-    <router-link to="/login" class="loginButton" v-if="!loggedIn">login</router-link>
     <button class="ms-5"  v-show="!showNavCol" @click="this.$emit('showNavChangeState'); this.$emit('mainInWidthChange',80)">
       <span class="material-symbols-outlined">
         list
@@ -17,9 +16,6 @@
 <script>
 export default {
   props:{
-    loggedIn:{
-      type: Boolean
-    },
     showNavCol:{
       type: Boolean
     },
@@ -31,6 +27,12 @@ export default {
 </script>
 
 <style scoped>
+  #header{
+    position: sticky;
+    top: 0;
+    border-bottom:1px solid var(--g);
+    z-index: 2;
+  }
   #header button{
     color: var(--g);
   }

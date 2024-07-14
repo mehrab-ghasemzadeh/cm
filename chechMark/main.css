@@ -1,0 +1,29 @@
+:root{
+  --g: green;
+  --w: white;
+  --b: black;
+  --lw: #c7c7c7;
+}
+div{
+  background-color: white ;
+}
+p,span,h1,h2,h3,h4,h5,h6{
+  color: black ;
+}
+.td-2{
+  transition-duration: 0.2s;
+}
+.td-5{
+  transition-duration: 0.5s;
+}
+.bgw{
+  background-color: var(--w);
+}
+#nav{
+  background-color: var(--b);
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
