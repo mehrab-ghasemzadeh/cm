@@ -2,13 +2,8 @@
   <div id="main flex" v-if="dashboard">
     <keep-alive>
       <div>
-        <vh
-          :showNavCol="showNavCol"
-          :mainInWidth="mainInWidth"
-          @showNavChangeState="this.showNavCol= !this.showNavCol"
-          @mainInWidthChange="(size) => mainInWidth = size"
-        ></vh>
-        <div class="mainIn" :style="{width: mainInWidth + '%'}">
+        
+        <div class="mainIn w-full">
           <div class="flex justify-center flex-wrap p-5 gap-5">
             <div class="grid mainInContainer">
               <v-card
@@ -25,40 +20,24 @@
             </div>
           </div>
         </div>
-        <div id="nav" class="p-3 flex flex-col items-center" v-show="showNavCol">
-          <vn :loggedIn="loggedIn"></vn>
-        </div>
+        
       </div>
     </keep-alive>
   </div>
 </template>
 
 <script>
-import header from '../components/header.vue'
-import nav from '../components/nav.vue'
 export default {
-  components:{
-    'vh':header,
-    'vn':nav
-  },
   props:{
     loggedIn:{
       type: Boolean
-    },
-    // mainInWidth:{
-    //   type:Int16Array
-    // },
-    // showNavCol:{
-    //   type:Boolean
-    // }
+    }
   },
   data(){
     return{
       comp:0,
-      showNavCol: true,
       dashboard: true,
       page: 0,
-      mainInWidth: 80,
       pages:[
         {name: 'shit', pageNum: 0},
         {name: 'crap', pageNum: 1}

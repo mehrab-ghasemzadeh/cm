@@ -1,21 +1,23 @@
 <template>
-  <div id="profilePic" class="flex flex-row-reverse items-center mb-5 p-3 pt-0 gap-3" v-if="loggedIn">
-    <img src="https://picsum.photos/id/684/100/100" alt="your profile picture">
-    <div id="profileInfo">
-      <span class="profileInfoName">fucking fucked up</span>
-      <!-- <br> -->
-      <span class="notif" v-if="Messagesunread.length">{{Messagesunread.length}} unread messages</span>
-      <span class="notif" v-if="!Messagesunread.length">your'e all caught up.</span>
+  <div class="mainNavContainer">
+    <div id="profilePic" class="flex flex-row-reverse items-center mb-5 p-3 pt-0 gap-3" v-if="loggedIn">
+      <img src="https://picsum.photos/id/684/100/100" alt="your profile picture">
+      <div id="profileInfo">
+        <span class="profileInfoName">fucking fucked up</span>
+        <!-- <br> -->
+        <span class="notif" v-if="Messagesunread.length">{{Messagesunread.length}} unread messages</span>
+        <span class="notif" v-if="!Messagesunread.length">your'e all caught up.</span>
+      </div>
     </div>
+    <div id="profileNotLogedIn" class="p-3 pt-0" v-if="!loggedIn">
+      <span style="color: red;">you are not logged in yet</span>
+    </div>
+    <ul class="list flex flex-col gap-2 w-full">
+      <li class="mb-1" v-for="sideBarButton in sideBarButtons" :key="sideBarButton">
+        <router-link class="navVbtn w-full td-2 block text-center p-2 rounded" :to="sideBarButton.url">{{sideBarButton.text}}</router-link>
+      </li>
+    </ul>
   </div>
-  <div id="profileNotLogedIn" class="p-3 pt-0" v-if="!loggedIn">
-    <span style="color: red;">you are not logged in yet</span>
-  </div>
-  <ul class="list flex flex-col gap-2 w-full">
-    <li class="mb-1" v-for="sideBarButton in sideBarButtons" :key="sideBarButton">
-      <router-link class="navVbtn w-full td-2 block text-center p-2 rounded" :to="sideBarButton.url">{{sideBarButton.text}}</router-link>
-    </li>
-  </ul>
 </template>
 
 <script>
@@ -30,9 +32,9 @@ export default {
       sideBarButtons:[
         {text:'dashboard', url:'/'},
         {text:'report',url:'/report'},
-        {text:'profile',url:'profile'},
-        {text:'settings',url:'settings'},
-        {text:'requests',url:'requests'},
+        // {text:'profile',url:'profile'},
+        // {text:'settings',url:'settings'},
+        // {text:'requests',url:'requests'},
       ],
       Messagesunread:["absent yesterday","haven't reached monthly goal yet","have worked 23 hours less than average last month"],
     }
@@ -41,6 +43,9 @@ export default {
 </script>
 
 <style scoped>
+.mainNavContainer{
+  background-color: var(--b);
+}
   .activeNav{
     background-color: var(--w);
   }

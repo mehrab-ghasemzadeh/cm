@@ -57,7 +57,7 @@ export default {
         // console.log(window.location.href)
       // }
     }
-  }
+  },
 }
 </script>
 

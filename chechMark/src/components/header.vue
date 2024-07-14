@@ -1,5 +1,5 @@
 <template>
-  <div id="header" class="bgw w-fill flex align-center gap-3 p-3 justify-end" :style="{width: mainInWidth + '%'}">
+  <div id="header" class="bgw w-fill flex align-center gap-3 p-3 justify-end">
     <button class="ms-5"  v-show="!showNavCol" @click="this.$emit('showNavChangeState'); this.$emit('mainInWidthChange',80)">
       <span class="material-symbols-outlined">
         list
@@ -19,9 +19,6 @@ export default {
     showNavCol:{
       type: Boolean
     },
-    mainInWidth:{
-      type: Int16Array
-    }
   }
 }
 </script>
